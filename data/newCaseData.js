@@ -1,5 +1,6 @@
 const convertData = require("../utils/convertData.js");
 const newCaseData = convertData(7, "sheet1");
+const replaceSpace = require("../utils/replaceSpace.js");
 // console.log(newCaseData);
 // get all type of cancer
 function getNewCase() {
@@ -13,7 +14,7 @@ function getNewCase() {
       female = d.C;
       male = d.D;
     } else {
-      dataOfDifferentType[d.A] = {
+      dataOfDifferentType[replaceSpace(d.A)] = {
         both_sexes_combined: d.B,
         female: d.C,
         male: d.D,
