@@ -33,5 +33,5 @@ function getNewCase() {
     ],
   };
 }
-console.log(getNewCase().new_case);
+// console.log(getNewCase().new_case);
 module.exports = getNewCase;

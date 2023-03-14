@@ -3,12 +3,14 @@ const getAllCategory = require("../data/allCategoryData.js");
 const getNewCase = require("../data/newCaseData.js");
 
 const data = [getAllCategory(), getNewCase()];
-console.log(data);
+// console.log(JSON.stringify(data));
 //seed the data
-Cancer.deleteMany({});
-Cancer.collection
-  .insertMany(data)
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));
+async function seedData() {
+  await Cancer.deleteMany({});
+  Cancer.collection
+    .insertMany(data)
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+}
 
-//seed the new case of each cancer
+seedData();
