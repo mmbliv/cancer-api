@@ -11,4 +11,4 @@ function getAllCategory() {
   });
   return { category: data };
 }
-module.exports = getAllCategory;
+module.exports = getAllCategory();
