@@ -1,8 +1,7 @@
 const convertData = require("../utils/convertData.js");
 const generateDocBasedOnsex = require("../utils/generateDataBasedOnSex.js");
-const newCaseData = convertData(7, "sheet1");
+const deathRateData = convertData(7, "sheet1");
 
-const newCase = generateDocBasedOnsex(newCaseData, "new_case_2023");
-
+const deathRate = generateDocBasedOnsex(deathRateData, "death_rates_2016_2020");
 // console.log(newCase);
-module.exports = newCase;
+module.exports = deathRate;
