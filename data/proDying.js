@@ -1,9 +1,9 @@
 const convertData = require("../utils/convertData.js");
 const path = require("path");
-const dataPath = path.join(__dirname, "Prob_DevCan.xlsx");
+const dataPath = path.join(__dirname, "Prob_Dying.xlsx");
 const proDevData = convertData(7, "sheet1", dataPath);
-console.log(proDevData);
-function getProDevData() {
+// console.log(proDevData);
+function getProDyingData() {
   const data = {};
   data["both_sexes_combined_0_49_years"] = proDevData["All US"][0].B;
   data["both_sexes_combined_50_59_years"] = proDevData["All US"][0].C;
@@ -21,7 +21,7 @@ function getProDevData() {
   data["male_70_plus_years"] = proDevData["All US"][0].O;
   data["male_all_age"] = proDevData["All US"][0].P;
   return {
-    probability_of_developing_cancer_2017_2019: data,
+    probability_of_dying_from_cancer_2017_2019: data,
   };
 }
-module.exports = getProDevData();
+module.exports = getProDyingData();

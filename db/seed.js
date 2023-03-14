@@ -5,8 +5,17 @@ const death = require("../data/death.js");
 const incRate = require("../data/incRate.js");
 const deathRate = require("../data/deathRate.js");
 const proDev = require("../data/probDevCancer.js");
+const proDying = require("../data/proDying.js");
 
-const data = [allCategory, newCase, death, incRate, deathRate, proDev];
+const data = [
+  allCategory,
+  newCase,
+  death,
+  incRate,
+  deathRate,
+  proDev,
+  proDying,
+];
 // console.log(data);
 //seed the data
 async function seedData() {
