@@ -1,3 +1,4 @@
-const newCaseData = require("../data/newCaseJson.js");
 const Cancer = require("../models/Cancer.js");
-console.log(newCaseData);
+const getAllCategory = require("../data/allCategoryData.js");
+
+console.log(getAllCategory());
