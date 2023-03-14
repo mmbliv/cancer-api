@@ -6,7 +6,7 @@ const incRate = require("../data/incRate.js");
 const deathRate = require("../data/deathRate.js");
 
 const data = [getAllCategory(), newCase, death, incRate, deathRate];
-console.log(data);
+// console.log(data);
 //seed the data
 async function seedData() {
   await Cancer.deleteMany({});

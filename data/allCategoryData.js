@@ -1,6 +1,8 @@
 const convertData = require("../utils/convertData.js");
 const replaceSpace = require("../utils/replaceSpace.js");
-const newCaseData = convertData(8, "sheet1");
+const path = require("path");
+const dataPath = path.join(__dirname, "NewCaseEstimates.xlsx");
+const newCaseData = convertData(8, "sheet1", dataPath);
 
 // get all type of cancer
 function getAllCategory() {
@@ -9,5 +11,4 @@ function getAllCategory() {
   });
   return { category: data };
 }
-
 module.exports = getAllCategory;
