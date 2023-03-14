@@ -1,9 +1,10 @@
 const Cancer = require("../models/Cancer.js");
 const getAllCategory = require("../data/allCategoryData.js");
-const getNewCase = require("../data/newCaseData.js");
+const newCase = require("../data/newCaseData.js");
+const death = require("../data/death.js");
 
-const data = [getAllCategory(), getNewCase()];
-// console.log(JSON.stringify(data));
+const data = [getAllCategory(), newCase, death];
+console.log(data);
 //seed the data
 async function seedData() {
   await Cancer.deleteMany({});
