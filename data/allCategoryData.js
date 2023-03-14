@@ -6,7 +6,7 @@ function getAllCategory() {
   const data = newCaseData["All US"].map((d) => {
     return d.A;
   });
-  return { category: data };
+  return [{ category: data }];
 }
 
 module.exports = getAllCategory;
