@@ -50,6 +50,8 @@ function getProDyingData2() {
   });
   return result;
 }
+
+console.log(getProDyingData2());
 module.exports = {
   proDying1: getProDyingData(),
   proDying2: getProDyingData2(),
