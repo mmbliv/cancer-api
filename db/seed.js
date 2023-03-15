@@ -15,7 +15,7 @@ const data = [
     category: allCategory.category,
     new_case_2023: newCase.new_case_2023,
     death_rates_2016_2020: death.death1.death_rates_2016_2020,
-    incidence_rates_2015_2019: incRate.incidence_rates_2015_2019,
+    incidence_rates_2015_2019: incRate.incRate1.incidence_rates_2015_2019,
     death_rates_2016_2020: deathRate.deathRate1.death_rates_2016_2020,
     probability_of_developing_cancer_2017_2019:
       proDev.probability_of_developing_cancer_2017_2019,
