@@ -7,7 +7,7 @@ function convertData(rowToSkip, sheet, path) {
     header: {
       rows: rowToSkip,
     },
-    sheets: sheet,
+    sheets: [sheet],
   });
   return result;
 }

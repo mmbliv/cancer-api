@@ -2,8 +2,8 @@ const convertData = require("../utils/convertData.js");
 const replaceSpace = require("../utils/replaceSpace.js");
 const path = require("path");
 const dataPath = path.join(__dirname, "Prob_DevCan.xlsx");
-const proDevData = convertData(7, "sheet1", dataPath);
-const proDevData2 = convertData(8, "sheet1", dataPath);
+const proDevData = convertData(7, "All US", dataPath);
+const proDevData2 = convertData(8, "All US", dataPath);
 // console.log(proDevData2["All US"]);
 function getProDevData() {
   const data = {};

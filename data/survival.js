@@ -2,7 +2,7 @@ const convertData = require("../utils/convertData.js");
 const replaceSpace = require("../utils/replaceSpace.js");
 const path = require("path");
 const dataPath = path.join(__dirname, "SurvivalByStage.xlsx");
-const survivalData = convertData(7, "sheet1", dataPath);
+const survivalData = convertData(7, "All US", dataPath);
 // console.log(survivalData);
 function getSurvivalData() {
   const result = survivalData["All US"].map((d) => {

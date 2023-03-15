@@ -4,8 +4,8 @@ const generateDataBasedOnCancerType = require("../utils/generateDataBasedOnCance
 const path = require("path");
 const dataPath = path.join(__dirname, "DeathRate.xlsx");
 // console.log(dataPath);
-const deathRateData = convertData(7, "sheet1", dataPath);
-const deathRateData2 = convertData(8, "sheet1", dataPath);
+const deathRateData = convertData(7, "All US", dataPath);
+const deathRateData2 = convertData(8, "All US", dataPath);
 
 const deathRate1 = generateDocBasedOnsex(
   deathRateData,

@@ -3,8 +3,8 @@ const generateDocBasedOnsex = require("../utils/generateDataBasedOnSex.js");
 const generateDataBasedOnCancerType = require("../utils/generateDataBasedOnCancerType.js");
 const path = require("path");
 const dataPath = path.join(__dirname, "IncRate.xlsx");
-const incRateData = convertData(7, "sheet1", dataPath);
-const incRateData2 = convertData(8, "sheet1", dataPath);
+const incRateData = convertData(7, "All US", dataPath);
+const incRateData2 = convertData(8, "All US", dataPath);
 
 const incRate1 = generateDocBasedOnsex(
   incRateData,

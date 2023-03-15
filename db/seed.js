@@ -20,7 +20,7 @@ const dataForEachCancer = newCancer
     "probability_of_dying_from_cancer_2017_2019"
   )
   .fillEmptyCategory();
-// console.log(Object.keys(dataForEachCancer).length);
+console.log(Object.keys(dataForEachCancer).length);
 
 const data = [
   {
