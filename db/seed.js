@@ -6,9 +6,24 @@ const incRate = require("../data/incRate.js");
 const deathRate = require("../data/deathRate.js");
 const proDev = require("../data/probDevCancer.js");
 const proDying = require("../data/proDying.js");
-// const death2 = require("../data/death.js");
+const CancerClass = require("../utils/generateDataForEachCancer.js");
 
-// console.log(Cancer);
+const newCancer = new CancerClass(newCase.newCase2, "new_case");
+console.log(newCancer.generateData());
+
+// console.log(newCase.newCase2);
+// const dataForEachCancer = {};
+// function generateDataForEachCancer() {
+//   newCase.newCase2.forEach((d) => {
+//     const key = Object.entries(d)[0][0];
+//     const value = Object.entries(d)[0][1];
+//     if (!dataForEachCancer[key] || !dataForEachCancer[key].new_case) {
+//       dataForEachCancer[key] = { new_case: value };
+//     }
+//   });
+// }
+// generateDataForEachCancer();
+// console.log(dataForEachCancer);
 
 const data = [
   {
@@ -23,7 +38,7 @@ const data = [
       proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
   },
 ];
-console.log(data);
+// console.log(data);
 //seed the data
 async function seedData() {
   try {
