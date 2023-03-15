@@ -17,5 +17,5 @@ function getStateSchema() {
   });
   return result;
 }
-// console.log(getStateSchema());
+console.log(getStateSchema());
 module.exports = { allStates: getStates(), stateSchema: getStateSchema() };

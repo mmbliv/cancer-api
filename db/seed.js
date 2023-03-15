@@ -1,4 +1,5 @@
 const Cancer = require("../models/Cancer.js");
+const State = require("../models/State.js");
 const allCategory = require("../data/allCategoryData.js");
 const newCase = require("../data/newCaseData.js");
 const death = require("../data/death.js");

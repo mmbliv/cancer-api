@@ -20,6 +20,12 @@ function getCancerSchema() {
       estimated_deaths_2023: "Number",
       new_case_2023: "Number",
     };
+    result["All_cancer"] = {
+      death_rates_2016_2020: "String",
+      incidence_rates_2015_2019: "String",
+      estimated_deaths_2023: "Number",
+      new_case_2023: "Number",
+    };
   });
   return result;
 }
