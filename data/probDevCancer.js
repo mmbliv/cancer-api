@@ -1,8 +1,10 @@
 const convertData = require("../utils/convertData.js");
+const replaceSpace = require("../utils/replaceSpace.js");
 const path = require("path");
 const dataPath = path.join(__dirname, "Prob_DevCan.xlsx");
 const proDevData = convertData(7, "sheet1", dataPath);
-// console.log(proDevData);
+const proDevData2 = convertData(8, "sheet1", dataPath);
+// console.log(proDevData2["All US"]);
 function getProDevData() {
   const data = {};
   data["both_sexes_combined_0_49_years"] = proDevData["All US"][0].B;
@@ -24,4 +26,29 @@ function getProDevData() {
     probability_of_developing_cancer_2017_2019: data,
   };
 }
-module.exports = getProDevData();
+
+function getProDevData2() {
+  const result = proDevData2["All US"].map((d) => {
+    const data = {};
+    const key = replaceSpace(d.A);
+    data["both_sexes_combined_0_49_years"] = d.B;
+    data["both_sexes_combined_50_59_years"] = d.C;
+    data["both_sexes_combined_60_69_years"] = d.D;
+    data["both_sexes_combined_70_plus_years"] = d.E;
+    data["both_sexes_combined_all_age"] = d.F;
+    data["female_0_49_years"] = d.G;
+    data["female_50_59_years"] = d.H;
+    data["female_60_69_years"] = d.I;
+    data["female_70_plus_years"] = d.J;
+    data["female_all_age"] = d.K;
+    data["male_0_49_years"] = d.L;
+    data["male_50_59_years"] = d.M;
+    data["male_60_69_years"] = d.N;
+    data["male_70_plus_years"] = d.O;
+    data["male_all_age"] = d.P;
+    return { [key]: data };
+  });
+  return result;
+}
+// console.log(getProDevData2());
+module.exports = { proDev1: getProDevData(), proDev2: getProDevData2() };
