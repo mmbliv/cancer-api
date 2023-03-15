@@ -9,33 +9,18 @@ const proDying = require("../data/proDying.js");
 const CancerClass = require("../utils/generateDataForEachCancer.js");
 
 const newCancer = new CancerClass();
-console.log(
-  newCancer
-    .generateData(newCase.newCase2, "new_case_2023")
-    .generateData(death.death2, "estimated_deaths_2023")
-    .generateData(incRate.incRate2, "incidence_rates_2015_2019")
-    .generateData(deathRate.deathRate2, "death_rates_2016_2020")
-    .generateData(proDev.proDev2, "probability_of_developing_cancer_2017_2019")
-    .generateData(
-      proDying.proDying2,
-      "probability_of_dying_from_cancer_2017_2019"
-    )
-    .fillEmptyCategory()
-);
-
-// console.log(newCase.newCase2);
-// const dataForEachCancer = {};
-// function generateDataForEachCancer() {
-//   newCase.newCase2.forEach((d) => {
-//     const key = Object.entries(d)[0][0];
-//     const value = Object.entries(d)[0][1];
-//     if (!dataForEachCancer[key] || !dataForEachCancer[key].new_case) {
-//       dataForEachCancer[key] = { new_case: value };
-//     }
-//   });
-// }
-// generateDataForEachCancer();
-// console.log(dataForEachCancer);
+const dataForEachCancer = newCancer
+  .generateData(newCase.newCase2, "new_case_2023")
+  .generateData(death.death2, "estimated_deaths_2023")
+  .generateData(incRate.incRate2, "incidence_rates_2015_2019")
+  .generateData(deathRate.deathRate2, "death_rates_2016_2020")
+  .generateData(proDev.proDev2, "probability_of_developing_cancer_2017_2019")
+  .generateData(
+    proDying.proDying2,
+    "probability_of_dying_from_cancer_2017_2019"
+  )
+  .fillEmptyCategory();
+// console.log(Object.keys(dataForEachCancer).length);
 
 const data = [
   {
@@ -48,6 +33,7 @@ const data = [
       proDev.proDev1.probability_of_developing_cancer_2017_2019,
     probability_of_dying_from_cancer_2017_2019:
       proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
+    cancer_type: dataForEachCancer,
   },
 ];
 // console.log(death.death1);
