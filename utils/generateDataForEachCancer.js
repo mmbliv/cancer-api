@@ -1,18 +1,33 @@
 class Cancer {
-  constructor(dataType, key) {
+  constructor() {
     this.data = {};
-    this.dataType = dataType;
-    this.key = key;
+    this.category = [];
+    // this.key = key;
   }
-  generateData() {
-    this.dataType.forEach((d) => {
-      // console.log(Object.entries(d));
+  generateData(dataType, category) {
+    this.category.push(category);
+    dataType.forEach((d) => {
       const key = Object.entries(d)[0][0];
       const value = Object.entries(d)[0][1];
-      if (!this.data[key] || !this.data[key][this.key]) {
-        this.data[key] = { [this.key]: value };
+      if (!this.data[key]) {
+        this.data[key] = { [category]: value };
+      } else {
+        this.data[key][category] = value;
       }
     });
+    return this;
+  }
+  fillEmptyCategory() {
+    for (let i in this.data) {
+      //   const key = Object.keys(i)[0];
+      const value = this.data[i];
+      const keyOfValue = Object.keys(value);
+      for (let j of this.category) {
+        if (!keyOfValue.includes(j)) {
+          this.data[i][j] = "n/a";
+        }
+      }
+    }
     return this.data;
   }
 }
