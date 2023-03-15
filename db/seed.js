@@ -20,7 +20,7 @@ const data = [
     probability_of_developing_cancer_2017_2019:
       proDev.proDev1.probability_of_developing_cancer_2017_2019,
     probability_of_dying_from_cancer_2017_2019:
-      proDying.probability_of_dying_from_cancer_2017_2019,
+      proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
   },
 ];
 console.log(data);
