@@ -34,4 +34,4 @@ const Cancer = new Schema({
   probability_of_developing_cancer_2017_2019: SexAndAgeSchema,
   probability_of_dying_from_cancer_2017_2019: SexAndAgeSchema,
 });
-module.exports = mongoose.model("cancer", Cancer);
+module.exports = mongoose.model("Cancer", Cancer);

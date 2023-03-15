@@ -2,7 +2,7 @@ const convertData = require("../utils/convertData.js");
 const path = require("path");
 const dataPath = path.join(__dirname, "Prob_DevCan.xlsx");
 const proDevData = convertData(7, "sheet1", dataPath);
-console.log(proDevData);
+// console.log(proDevData);
 function getProDevData() {
   const data = {};
   data["both_sexes_combined_0_49_years"] = proDevData["All US"][0].B;
