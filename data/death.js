@@ -33,7 +33,10 @@ const deathData3 = convertData(7, "State", dataPath, true);
 // console.log(deathData3);
 const death1 = generateDataBasedOnSex(deathData1, "estimated_deaths_2023");
 const death2 = generateDataBasedOnCancerType(deathData2["All US"]);
-const death3 = generateDataForEachState(deathData3.State);
-console.log(death3);
+const death3 = generateDataForEachState(
+  deathData3.State,
+  "estimated_deaths_2023"
+);
+// console.log(death3);
 
-module.exports = { death1, death2 };
+module.exports = { death1, death2, death3 };

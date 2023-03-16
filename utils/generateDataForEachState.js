@@ -1,6 +1,6 @@
 const replaceSpace = require("./replaceSpace.js");
 
-function getDataFromEachCancer(data) {
+function getDataFromEachCancer(data, keyString) {
   //   console.log(data);
   const result = {};
   let tempkey;
@@ -12,9 +12,15 @@ function getDataFromEachCancer(data) {
           tempkey = d[j];
         } else {
           const key = replaceSpace(j);
+          let value;
+          if (Number.isFinite(+d[j])) {
+            value = +d[j];
+          } else {
+            value = d[j];
+          }
           result[tempkey] = {
             ...result[tempkey],
-            [key]: { estimated_deaths_2023: d[j] },
+            [key]: { [keyString]: value },
           };
         }
       }
