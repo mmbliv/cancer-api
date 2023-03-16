@@ -18,7 +18,7 @@ function getCancerSchema() {
       estimated_deaths_2023: "Number",
       new_case_2023: "Number",
     };
-    result["All_cancer"] = {
+    result["All_cancer_types_combined"] = {
       estimated_deaths_2023: "Number",
       new_case_2023: "Number",
     };
