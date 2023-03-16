@@ -20,4 +20,14 @@ module.exports = {
     const result = data[0][req.params.state][req.params.cancer];
     res.json(result);
   },
+  create: async (req, res) => {
+    console.log(req.body);
+    console.log(req.params);
+    const data = await State.find({}).select(req.params.state);
+    const result = {
+      ...req.body,
+      ...data[0][req.params.state][req.params.cancer],
+    };
+    res.json(result);
+  },
 };
