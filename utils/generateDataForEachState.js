@@ -12,15 +12,10 @@ function getDataFromEachCancer(data, keyString) {
           tempkey = d[j];
         } else {
           const key = replaceSpace(j);
-          let value;
-          if (Number.isFinite(+d[j])) {
-            value = +d[j];
-          } else {
-            value = d[j];
-          }
+
           result[tempkey] = {
             ...result[tempkey],
-            [key]: { [keyString]: value },
+            [key]: { [keyString]: d[j] },
           };
         }
       }

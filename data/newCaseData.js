@@ -11,7 +11,7 @@ const newCaseData3 = convertData(7, "State", dataPath, true);
 const newCase1 = generateDocBasedOnsex(newCaseData, "new_case_2023");
 const newCase2 = generateDataBasedOnCancerType(newCaseData2["All US"]);
 const newCase3 = generateDataForEachState(newCaseData3.State, "new_case_2023");
-console.log(newCase3);
+// console.log(newCase3);
 
 // console.log(newCase2);
-module.exports = { newCase1, newCase2 };
+module.exports = { newCase1, newCase2, newCase3 };

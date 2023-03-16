@@ -15,12 +15,20 @@ function getCancerSchema() {
   const result = {};
   getCancerType().forEach((d) => {
     result[d] = {
-      estimated_deaths_2023: "Number",
-      new_case_2023: "Number",
+      estimated_deaths_2023: {
+        type: "String",
+      },
+      new_case_2023: {
+        type: "String",
+      },
     };
     result["All_cancer_types_combined"] = {
-      estimated_deaths_2023: "Number",
-      new_case_2023: "Number",
+      estimated_deaths_2023: {
+        type: "String",
+      },
+      new_case_2023: {
+        type: "String",
+      },
     };
   });
   return result;

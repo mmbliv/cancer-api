@@ -21,8 +21,17 @@ const dataForEachCancer = newCancer
     "probability_of_dying_from_cancer_2017_2019"
   )
   .fillEmptyCategory();
+// console.log(newCase.newCase3);
 // console.log(Object.keys(dataForEachCancer).length);
-
+const stateData = { ...death.death3 };
+// console.log(stateData);
+for (let i in newCase.newCase3) {
+  for (let j in newCase.newCase3[i]) {
+    // console.log(j);
+    stateData[i][j] = { ...stateData[i][j], ...newCase.newCase3[i][j] };
+  }
+}
+// console.log(stateData);
 const data = [
   {
     category: allCategory.category,
@@ -42,7 +51,9 @@ const data = [
 async function seedData() {
   try {
     await Cancer.deleteMany({});
+    await State.deleteMany({});
     await Cancer.create(data);
+    await State.create(stateData);
   } catch (err) {
     console.log(err);
   }
