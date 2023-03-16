@@ -1,3 +1,4 @@
+const { trusted } = require("mongoose");
 const State = require("../models/State");
 
 module.exports = {
@@ -8,13 +9,15 @@ module.exports = {
   },
   showStateData: (req, res) => {
     State.find({})
-      .select(req.params.name)
+      .select(req.params.state)
       .then((d) => {
         // console.log(d);
         res.json(d);
       });
   },
-    showCancerInState:(req,res)=>{
-      State.find().
-    }
+  showCancerInState: async (req, res) => {
+    const data = await State.find({}).select(req.params.state);
+    const result = data[0][req.params.state][req.params.cancer];
+    res.json(result);
+  },
 };
