@@ -10,4 +10,12 @@ module.exports = {
     const data = await Cancer.find({}).select("all_cancer_in_US");
     res.json(data);
   },
+  getCancerCategory: async (req, res) => {
+    const data = await Cancer.find({}).select("category");
+    res.json(data);
+  },
+  getTypeData: async (req, res) => {
+    const data = await Cancer.find({}).select("cancer_type");
+    res.json(data);
+  },
 };
