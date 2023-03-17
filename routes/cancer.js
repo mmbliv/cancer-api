@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/cancer", cancerController.index);
 router.get("/cancer/us", cancerController.getUsData);
 router.get("/cancer/category", cancerController.getCancerCategory);
-router.get("/cancer/type_data", cancerController.getAllTypeData);
-router.get("/cancer/type_data/:cancer");
+router.get("/cancer/cancer_data", cancerController.getAllTypeData);
+router.get("/cancer/cancer_data/:cancer", cancerController.getOneTypeData);
 
 module.exports = router;

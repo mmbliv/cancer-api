@@ -15,8 +15,20 @@ module.exports = {
     res.json(data);
   },
   getAllTypeData: async (req, res) => {
-    const data = await Cancer.find({}).select("cancer_type");
+    const data = await Cancer.find({}).select("cancer_data");
     res.json(data);
   },
-  getOneTypeData: async (req, res) => {},
+  getOneTypeData: async (req, res) => {
+    const data = await Cancer.find(
+      {},
+      {
+        cancer_data: {
+          $elemMatch: {
+            cancer_type: req.params.cancer,
+          },
+        },
+      }
+    );
+    res.json(data);
+  },
 };

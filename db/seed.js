@@ -98,7 +98,7 @@ const data = [
       probability_of_dying_from_cancer_2017_2019:
         proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
     },
-    cancer_type: dataForEachCancer,
+    cancer_data: dataForEachCancer,
   },
 ];
 // console.log(death.death1);
