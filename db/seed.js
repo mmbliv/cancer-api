@@ -23,15 +23,67 @@ const dataForEachCancer = newCancer
   .fillEmptyCategory();
 // console.log(newCase.newCase3);
 // console.log(Object.keys(dataForEachCancer).length);
-const stateData = { ...death.death3 };
-// console.log(stateData);
-for (let i in newCase.newCase3) {
-  for (let j in newCase.newCase3[i]) {
-    // console.log(j);
-    stateData[i][j] = { ...stateData[i][j], ...newCase.newCase3[i][j] };
+// const stateData = { ...death.death3 };
+const stateDeathData = [];
+// console.log(newCase.newCase3);
+for (let i in death.death3) {
+  const data = {};
+  data.state = i;
+  for (let j in death.death3[i]) {
+    data[j] = death.death3[i][j];
   }
+  stateDeathData.push(data);
 }
-// console.log(stateData);
+const stateNewCaseData = [];
+for (let i in newCase.newCase3) {
+  const data = {};
+  data.state = i;
+  for (let j in newCase.newCase3[i]) {
+    data[j] = newCase.newCase3[i][j];
+  }
+  stateNewCaseData.push(data);
+}
+
+const combinedArray = stateDeathData.map((obj1) => {
+  const obj2 = stateNewCaseData.find((obj2) => obj2.state === obj1.state);
+  const combinedData = {};
+  for (const key of Object.keys(obj1)) {
+    const value1 = obj1[key];
+    const value2 = obj2[key];
+    if (
+      value1 &&
+      typeof value1 === "object" &&
+      value2 &&
+      typeof value2 === "object"
+    ) {
+      // If both values are objects, merge them if they have the same keys
+      const combinedValue = {};
+      const allKeys = [
+        ...new Set([...Object.keys(value1), ...Object.keys(value2)]),
+      ];
+      for (const k of allKeys) {
+        const v1 = value1[k];
+        const v2 = value2[k];
+        if (v1 !== undefined && v2 !== undefined) {
+          combinedValue[k] = { ...v1, ...v2 };
+        } else if (v1 !== undefined) {
+          combinedValue[k] = v1;
+        } else if (v2 !== undefined) {
+          combinedValue[k] = v2;
+        }
+      }
+      combinedData[key] = combinedValue;
+    } else {
+      combinedData[key] = value1 !== undefined ? value1 : value2;
+    }
+  }
+  return {
+    state: obj1.state,
+    ...combinedData,
+  };
+});
+// console.log(combinedArray);
+
 const data = [
   {
     category: allCategory.category,
@@ -53,7 +105,7 @@ async function seedData() {
     await Cancer.deleteMany({});
     await State.deleteMany({});
     await Cancer.create(data);
-    await State.create(stateData);
+    await State.create(combinedArray);
   } catch (err) {
     console.log(err);
   }

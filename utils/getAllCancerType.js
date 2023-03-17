@@ -30,11 +30,12 @@ function getCancerSchema() {
         type: "String",
       },
     };
+    result.state = "String";
   });
   return result;
 }
 // console.log(getCancerSchema());
 module.exports = {
   allCancerType: getCancerType(),
-  cancerSchema: getCancerSchema(),
+  stateSchema: getCancerSchema(),
 };
