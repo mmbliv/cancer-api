@@ -23,12 +23,9 @@ module.exports = {
   },
 
   updata: async (req, res) => {
-    console.log(req.params);
-    console.log(req.body);
     const cancerData = await State.find({ state: req.params.state }).select(
       req.params.cancer
     );
-    // console.log(cancerData[0][req.params.cancer]);
     const data = await State.findOneAndUpdate(
       { state: req.params.state },
       {
@@ -38,7 +35,22 @@ module.exports = {
         },
       }
     );
-    // console.log(cancerData);
+    res.json(data);
+  },
+  create: async (req, res) => {
+    const cancerData = await State.find({ state: req.params.state }).select(
+      req.params.cancer
+    );
+    const data = await State.findOneAndUpdate(
+      { state: req.params.state },
+      {
+        [`${req.params.cancer}`]: {
+          ...cancerData[0][req.params.cancer],
+          ...req.body,
+        },
+      },
+      { new: true }
+    ).exec();
     res.json(data);
   },
 };

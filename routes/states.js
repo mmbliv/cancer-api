@@ -7,5 +7,6 @@ router.get("/state/:state", stataController.showStateData);
 // router.post("/state/cancer/:state-:cancer", stataController.create);
 router.get("/state/cancer/:state-:cancer", stataController.showCancerInState);
 router.put("/state/cancer/:state-:cancer", stataController.updata);
+router.post("/state/cancer/:state-:cancer", stataController.create);
 
 module.exports = router;

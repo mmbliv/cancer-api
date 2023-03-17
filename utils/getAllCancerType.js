@@ -1,4 +1,6 @@
 const convertData = require("../utils/convertData.js");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const path = require("path");
 const replaceSpace = require("./replaceSpace.js");
 const dataPath = path.join(__dirname, "..", "data", "NewCaseEstimates.xlsx");
@@ -14,22 +16,8 @@ function getCancerType() {
 function getCancerSchema() {
   const result = {};
   getCancerType().forEach((d) => {
-    result[d] = {
-      estimated_deaths_2023: {
-        type: "String",
-      },
-      new_case_2023: {
-        type: "String",
-      },
-    };
-    result["All_cancer_types_combined"] = {
-      estimated_deaths_2023: {
-        type: "String",
-      },
-      new_case_2023: {
-        type: "String",
-      },
-    };
+    result[d] = Schema.Types.Mixed;
+    result["All_cancer_types_combined"] = Schema.Types.Mixed;
     result.state = "String";
   });
   return result;
