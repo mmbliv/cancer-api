@@ -31,4 +31,16 @@ module.exports = {
     );
     res.json(data);
   },
+  updateUsData: async (req, res) => {
+    console.log(req.body);
+    console.log(req.params);
+    const data = await Cancer.findOneAndUpdate({}).select("all_cancer_in_US");
+    // console.log(data);
+    data.all_cancer_in_US[req.params.item] = {
+      ...data.all_cancer_in_US[req.params.item],
+      ...req.body,
+    };
+    await data.save();
+    res.json(data);
+  },
 };
