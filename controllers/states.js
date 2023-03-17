@@ -34,7 +34,7 @@ module.exports = {
           ...req.body,
         },
       }
-    );
+    ).exec();
     res.json(data);
   },
   create: async (req, res) => {
