@@ -6,4 +6,8 @@ module.exports = {
       res.json(d);
     });
   },
+  getUsData: async (req, res) => {
+    const data = await Cancer.find({}).select("all_cancer_in_US");
+    res.json(data);
+  },
 };
