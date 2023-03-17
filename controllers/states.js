@@ -9,32 +9,36 @@ module.exports = {
     });
   },
   showStateData: (req, res) => {
-    State.find({})
-      .select(req.params.state)
-      .then((d) => {
-        // console.log(d);
-        res.json(d);
-      });
+    State.find({ state: req.params.state }).then((d) => {
+      // console.log(d);
+      res.json(d);
+    });
   },
   showCancerInState: async (req, res) => {
-    const data = await State.find({}).select(req.params.state);
-    const result = data[0][req.params.state][req.params.cancer];
-    res.json(result);
+    const data = await State.find({ state: req.params.state }).select(
+      req.params.cancer
+    );
+    // const result = data[0][req.params.state][req.params.cancer];
+    res.json(data);
   },
-  //   create: async (req, res) => {
-  //     const data = await State.find({}).select(req.params.state);
-  //     const result = {
-  //       ...req.body,
-  //       ...data[0][req.params.state][req.params.cancer],
-  //     };
 
-  //     res.json(result);
-  //   },
   updata: async (req, res) => {
     console.log(req.params);
-    const a = await State.findOne({
-      [`${req.params.state}`]: { $exists: true },
-    });
-    res.json(a);
+    console.log(req.body);
+    const cancerData = await State.find({ state: req.params.state }).select(
+      req.params.cancer
+    );
+    // console.log(cancerData[0][req.params.cancer]);
+    const data = await State.findOneAndUpdate(
+      { state: req.params.state },
+      {
+        [`${req.params.cancer}`]: {
+          ...cancerData[0][req.params.cancer],
+          ...req.body,
+        },
+      }
+    );
+    // console.log(cancerData);
+    res.json(data);
   },
 };
