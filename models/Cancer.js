@@ -27,12 +27,14 @@ const SexAndAgeSchema = new Schema({
 
 const Cancer = new Schema({
   category: [String],
-  new_case_2023: SexSchema,
-  estimated_deaths_2023: SexSchema,
-  incidence_rates_2015_2019: SexSchema,
-  death_rates_2016_2020: SexSchema,
-  probability_of_developing_cancer_2017_2019: SexAndAgeSchema,
-  probability_of_dying_from_cancer_2017_2019: SexAndAgeSchema,
+  all_cancer_in_US: {
+    new_case_2023: SexSchema,
+    estimated_deaths_2023: SexSchema,
+    incidence_rates_2015_2019: SexSchema,
+    death_rates_2016_2020: SexSchema,
+    probability_of_developing_cancer_2017_2019: SexAndAgeSchema,
+    probability_of_dying_from_cancer_2017_2019: SexAndAgeSchema,
+  },
   cancer_type: Schema.Types.Mixed,
 });
 module.exports = mongoose.model("Cancer", Cancer);
