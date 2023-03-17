@@ -20,8 +20,9 @@ const dataForEachCancer = newCancer
     proDying.proDying2,
     "probability_of_dying_from_cancer_2017_2019"
   )
-  .fillEmptyCategory();
-// console.log(newCase.newCase3);
+  .fillEmptyCategory()
+  .makeNameAsKeyValue();
+// console.log(dataForEachCancer);
 // console.log(Object.keys(dataForEachCancer).length);
 // const stateData = { ...death.death3 };
 const stateDeathData = [];

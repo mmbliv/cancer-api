@@ -14,8 +14,9 @@ module.exports = {
     const data = await Cancer.find({}).select("category");
     res.json(data);
   },
-  getTypeData: async (req, res) => {
+  getAllTypeData: async (req, res) => {
     const data = await Cancer.find({}).select("cancer_type");
     res.json(data);
   },
+  getOneTypeData: async (req, res) => {},
 };

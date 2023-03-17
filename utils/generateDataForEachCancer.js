@@ -28,7 +28,17 @@ class Cancer {
         }
       }
     }
-    return this.data;
+    return this;
+  }
+  makeNameAsKeyValue() {
+    const result = [];
+    for (let i in this.data) {
+      let d = {};
+      d = { cancer_type: i, ...this.data[i] };
+      //   this.data[i] = { cancer_type: i, ...this.data[i] };
+      result.push(d);
+    }
+    return result;
   }
 }
 module.exports = Cancer;
