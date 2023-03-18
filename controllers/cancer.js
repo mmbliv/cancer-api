@@ -51,4 +51,11 @@ module.exports = {
     const data = await Cancer.create(req.body);
     res.json(data);
   },
+  updata: async (req, res) => {
+    const data = await Cancer.findOneAndUpdate(
+      { cancer_type: req.params.cancer },
+      req.body
+    );
+    res.json(data);
+  },
 };
