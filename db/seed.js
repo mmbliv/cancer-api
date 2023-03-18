@@ -1,6 +1,6 @@
 const Cancer = require("../models/Cancer.js");
 const State = require("../models/State.js");
-// const AllUS = require("../models/AllUS");
+// const User = require("../models/User.js");
 const allCategory = require("../data/allCategoryData.js");
 const newCase = require("../data/newCaseData.js");
 const death = require("../data/death.js");
@@ -122,6 +122,7 @@ const combinedArray = stateDeathData.map((obj1) => {
 //seed the data
 async function seedData() {
   try {
+    // await User.deleteMany({});
     await Cancer.deleteMany({});
     await State.deleteMany({});
     await Cancer.create(dataForEachCancer);
