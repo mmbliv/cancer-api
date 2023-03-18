@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-const { state, cancer } = require("./routes");
+const { state, cancer, user } = require("./routes");
 
 app.use(express.json());
 
+app.use(user);
 app.use(state);
 app.use(cancer);
 

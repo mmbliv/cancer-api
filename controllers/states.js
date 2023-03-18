@@ -1,5 +1,3 @@
-const { trusted } = require("mongoose");
-const { join } = require("path/posix");
 const State = require("../models/State");
 
 module.exports = {
