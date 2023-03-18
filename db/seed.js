@@ -1,5 +1,6 @@
 const Cancer = require("../models/Cancer.js");
 const State = require("../models/State.js");
+// const AllUS = require("../models/AllUS");
 const allCategory = require("../data/allCategoryData.js");
 const newCase = require("../data/newCaseData.js");
 const death = require("../data/death.js");
@@ -23,8 +24,7 @@ const dataForEachCancer = newCancer
   .fillEmptyCategory()
   .makeNameAsKeyValue();
 // console.log(dataForEachCancer);
-// console.log(Object.keys(dataForEachCancer).length);
-// const stateData = { ...death.death3 };
+
 const stateDeathData = [];
 // console.log(newCase.newCase3);
 for (let i in death.death3) {
@@ -85,29 +85,46 @@ const combinedArray = stateDeathData.map((obj1) => {
 });
 // console.log(combinedArray);
 
-const data = [
-  {
-    category: allCategory.category,
-    all_cancer_in_US: {
-      new_case_2023: newCase.newCase1.new_case_2023,
-      estimated_deaths_2023: death.death1.estimated_deaths_2023,
-      incidence_rates_2015_2019: incRate.incRate1.incidence_rates_2015_2019,
-      death_rates_2016_2020: deathRate.deathRate1.death_rates_2016_2020,
-      probability_of_developing_cancer_2017_2019:
-        proDev.proDev1.probability_of_developing_cancer_2017_2019,
-      probability_of_dying_from_cancer_2017_2019:
-        proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
-    },
-    cancer_data: dataForEachCancer,
-  },
-];
+// const data = [
+//   {
+//     category: allCategory.category,
+//     all_cancer_in_US: {
+//       new_case_2023: newCase.newCase1.new_case_2023,
+//       estimated_deaths_2023: death.death1.estimated_deaths_2023,
+//       incidence_rates_2015_2019: incRate.incRate1.incidence_rates_2015_2019,
+//       death_rates_2016_2020: deathRate.deathRate1.death_rates_2016_2020,
+//       probability_of_developing_cancer_2017_2019:
+//         proDev.proDev1.probability_of_developing_cancer_2017_2019,
+//       probability_of_dying_from_cancer_2017_2019:
+//         proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
+//     },
+//     cancer_data: dataForEachCancer,
+//   },
+// ];
+
+// console.log(dataForEachCancer);
+// const allUSData = [
+//   {
+//     category: allCategory.category,
+//     all_cancer_in_US: {
+//       new_case_2023: newCase.newCase1.new_case_2023,
+//       estimated_deaths_2023: death.death1.estimated_deaths_2023,
+//       incidence_rates_2015_2019: incRate.incRate1.incidence_rates_2015_2019,
+//       death_rates_2016_2020: deathRate.deathRate1.death_rates_2016_2020,
+//       probability_of_developing_cancer_2017_2019:
+//         proDev.proDev1.probability_of_developing_cancer_2017_2019,
+//       probability_of_dying_from_cancer_2017_2019:
+//         proDying.proDying1.probability_of_dying_from_cancer_2017_2019,
+//     },
+//   },
+// ];
 // console.log(death.death1);
 //seed the data
 async function seedData() {
   try {
     await Cancer.deleteMany({});
     await State.deleteMany({});
-    await Cancer.create(data);
+    await Cancer.create(dataForEachCancer);
     await State.create(combinedArray);
   } catch (err) {
     console.log(err);

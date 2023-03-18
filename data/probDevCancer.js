@@ -3,7 +3,7 @@ const replaceSpace = require("../utils/replaceSpace.js");
 const path = require("path");
 const dataPath = path.join(__dirname, "Prob_DevCan.xlsx");
 const proDevData = convertData(7, "All US", dataPath);
-const proDevData2 = convertData(8, "All US", dataPath);
+// const proDevData2 = convertData(8, "All US", dataPath);
 // console.log(proDevData2["All US"]);
 function getProDevData() {
   const data = {};
@@ -28,7 +28,7 @@ function getProDevData() {
 }
 
 function getProDevData2() {
-  const result = proDevData2["All US"].map((d) => {
+  const result = proDevData["All US"].map((d) => {
     const data = {};
     const key = replaceSpace(d.A);
     data["both_sexes_combined_0_49_years"] = d.B;
