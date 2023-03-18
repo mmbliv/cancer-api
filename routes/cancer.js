@@ -8,5 +8,6 @@ router.get("/cancer", cancerController.index);
 // router.get("/cancer/cancer_data", cancerController.getAllTypeData);
 router.get("/cancer/:cancer", cancerController.getOneTypeData);
 // router.put("/cancer/us/:item", cancerController.updateUsData);
+router.post("/cancer", cancerController.create);
 
 module.exports = router;
