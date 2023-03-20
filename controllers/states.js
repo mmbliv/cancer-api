@@ -22,7 +22,7 @@ module.exports = {
 
   updata: async (req, res) => {
     const data = await State.findOneAndUpdate(
-      { state: req.params.state, cancer_type: req.params.cancer_type },
+      { state: req.query.state, cancer_type: req.query.cancer_type },
       req.body
     );
     // const cancerData = await State.find({ state: req.params.state }).select(
