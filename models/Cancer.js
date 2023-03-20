@@ -36,5 +36,6 @@ const Cancer = new Schema({
   death_rates_2016_2020: Schema.Types.Mixed,
   probability_of_developing_cancer_2017_2019: Schema.Types.Mixed,
   probability_of_dying_from_cancer_2017_2019: Schema.Types.Mixed,
+  survival_2012_2018_5_year: Schema.Types.Mixed,
 });
 module.exports = mongoose.model("Cancer", Cancer);

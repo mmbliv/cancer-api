@@ -8,7 +8,9 @@ const incRate = require("../data/incRate.js");
 const deathRate = require("../data/deathRate.js");
 const proDev = require("../data/probDevCancer.js");
 const proDying = require("../data/proDying.js");
+const survival = require("../data/survival.js");
 const CancerClass = require("../utils/generateDataForEachCancer.js");
+// console.log(newCase.newCase2);
 
 const newCancer = new CancerClass();
 const dataForEachCancer = newCancer
@@ -17,6 +19,7 @@ const dataForEachCancer = newCancer
   .generateData(incRate.incRate2, "incidence_rates_2015_2019")
   .generateData(deathRate.deathRate2, "death_rates_2016_2020")
   .generateData(proDev.proDev2, "probability_of_developing_cancer_2017_2019")
+  .generateData(survival, "survival_2012_2018_5_year")
   .generateData(
     proDying.proDying2,
     "probability_of_dying_from_cancer_2017_2019"

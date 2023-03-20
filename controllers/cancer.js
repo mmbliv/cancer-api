@@ -44,7 +44,7 @@ module.exports = {
   //     res.json(data);
   //   },
   getOneTypeData: async (req, res) => {
-    const data = await Cancer.findOne({ cancer_type: req.params.cancer });
+    const data = await Cancer.findOne({ cancer_type: req.params.cancer_type });
     res.json(data);
   },
   create: async (req, res) => {
@@ -53,7 +53,7 @@ module.exports = {
   },
   updata: async (req, res) => {
     const data = await Cancer.findOneAndUpdate(
-      { cancer_type: req.params.cancer },
+      { cancer_type: req.params.cancer_type },
       req.body
     );
     res.json(data);
