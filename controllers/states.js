@@ -2,25 +2,21 @@ const State = require("../models/State");
 
 module.exports = {
   index: (req, res) => {
-    // console.log("hu");
     State.find({}).then((d) => {
-      console.log(d);
       res.json(d);
     });
   },
   showStateData: (req, res) => {
     State.find({ state: req.params.state }).then((d) => {
-      // console.log(d);
       res.json(d);
     });
   },
   showCancerInState: async (req, res) => {
+    console.log(req.query);
     const data = await State.find({
-      state: req.params.state,
-      cancer_type: req.params.cancer_type,
+      state: req.query.state,
+      cancer_type: req.query.cancer_type,
     });
-    // console.log(data);
-    // const result = data[0][req.params.state][req.params.cancer];
     res.json(data);
   },
 
