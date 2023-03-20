@@ -15,10 +15,6 @@ router.put(
   authorize("admin"),
   stataController.updata
 );
-router.post(
-  "/cancer/v1/state/:state-:cancer_type",
-  authorize("admin"),
-  stataController.create
-);
+router.post("/cancer/v1/state", authorize("admin"), stataController.create);
 
 module.exports = router;
