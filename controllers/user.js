@@ -3,6 +3,7 @@ const userService = require("../utils/user/service.js");
 
 module.exports = {
   signup: async (req, res) => {
+    console.log("ji");
     try {
       await User.create(req.body);
       res.json({ message: "signup successfully" });
@@ -11,9 +12,10 @@ module.exports = {
     }
   },
   authenticate: async (req, res) => {
+    console.log("hu");
     const user = await userService.authenticate(req.body);
     if (user) {
-      res.json(user);
+      res.json({ token: user.token });
     } else {
       res.status(400).json({ message: "Username or password is incorrect" });
     }
